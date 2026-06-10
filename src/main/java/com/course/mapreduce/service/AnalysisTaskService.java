@@ -67,6 +67,14 @@ public class AnalysisTaskService {
         return taskMapper.findAll();
     }
 
+    public boolean deleteFinishedOrFailed(Long id) {
+        return taskMapper.deleteFinishedOrFailed(id) > 0;
+    }
+
+    public int deleteAllFinishedOrFailed() {
+        return taskMapper.deleteAllFinishedOrFailed();
+    }
+
     private String resolveInputPath(CreateTaskRequest request) {
         if (request != null && StringUtils.hasText(request.getInputPath())) {
             return request.getInputPath();

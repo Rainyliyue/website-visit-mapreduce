@@ -7,14 +7,18 @@ public class AccessLogRecord {
     private final String url;
     private final String ip;
     private final String region;
+    private final String status;
+    private final Long bytes;
 
-    private AccessLogRecord(String date, String time, String site, String url, String ip, String region) {
+    private AccessLogRecord(String date, String time, String site, String url, String ip, String region, String status, Long bytes) {
         this.date = date;
         this.time = time;
         this.site = site;
         this.url = url;
         this.ip = ip;
         this.region = region;
+        this.status = status;
+        this.bytes = bytes;
     }
 
     public static AccessLogRecord parse(String line) {
@@ -34,7 +38,12 @@ public class AccessLogRecord {
         if (date.isEmpty() || time.length() < 2 || site.isEmpty() || url.isEmpty()) {
             return null;
         }
-        return new AccessLogRecord(date, time, site, url, ip, region);
+        long bytes = 0L;
+        try {
+            bytes = Long.parseLong(parts[7].trim());
+        } catch (NumberFormatException ignored) {
+        }
+        return new AccessLogRecord(date, time, site, url, ip, region, parts[6].trim(), bytes);
     }
 
     public String rankKey() {
@@ -71,5 +80,25 @@ public class AccessLogRecord {
 
     public String region() {
         return region;
+    }
+
+    public String date() {
+        return date;
+    }
+
+    public String time() {
+        return time;
+    }
+
+    public String targetAddress() {
+        return site + url;
+    }
+
+    public String status() {
+        return status;
+    }
+
+    public Long bytes() {
+        return bytes;
     }
 }

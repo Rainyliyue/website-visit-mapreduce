@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>管理员 - 网站访问量统计分析系统</title>
+    <link rel="stylesheet" href="/styles.css?v=20260611-5">
+</head>
+<body>
+<header class="topbar">
+    <div>
+        <h1>管理员控制台</h1>
+        <p>用户管理 · 任务管理 · 数据管理 · 缓存管理 · <span id="currentUser">未登录</span></p>
+    </div>
+    <div class="top-actions">
+        <a class="ghost-link" href="/">返回首页</a>
+        <button id="logoutBtn" class="secondary-btn">退出</button>
+        <button id="clearBtn">清理分析缓存</button>
+    </div>
+</header>
+
+<main class="layout">
+    <section class="admin-overview-grid">
+        <div class="panel">
+            <h2>用户管理</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>用户名</th>
+                        <th>角色</th>
+                        <th>创建时间</th>
+                    </tr>
+                    </thead>
+                    <tbody id="userRows"></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="panel">
+            <h2>数据管理</h2>
+            <div id="dataSummary" class="summary-grid"></div>
+            <div class="admin-data-actions">
+                <button data-clear-data="rank" class="secondary-btn">删除排行数据</button>
+                <button data-clear-data="peak" class="secondary-btn">删除峰值数据</button>
+                <button data-clear-data="regions" class="secondary-btn">删除地区数据</button>
+                <button data-clear-data="ips" class="secondary-btn">删除IP数据</button>
+                <button data-clear-data="logs" class="secondary-btn">删除访问明细</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2>任务管理</h2>
+        <div class="table-wrap task-table-scroll">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>输入路径</th>
+                    <th>状态</th>
+                    <th>完成时间</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody id="taskRows"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2>原始访问明细</h2>
+        <div class="table-wrap task-table-scroll">
+            <table>
+                <thead>
+                <tr>
+                    <th>访问日期</th>
+                    <th>访问时间</th>
+                    <th>网站</th>
+                    <th>目标地址</th>
+                    <th>用户IP</th>
+                    <th>用户地区</th>
+                    <th>状态码</th>
+                    <th>字节数</th>
+                </tr>
+                </thead>
+                <tbody id="logRows"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2>分析缓存数据管理</h2>
+        <div id="adminNotice" class="notice">缓存数据来自 visit_rank、visit_peak、source_distribution 三张结果表。</div>
+        <div class="admin-actions-row">
+            <button id="clearCompletedCacheBtn" class="secondary-btn">删除已完成任务缓存</button>
+            <button id="deleteCompletedTasksBtn" class="secondary-btn">批量删除完成/异常任务</button>
+        </div>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                <tr>
+                    <th>类型</th>
+                    <th>记录数</th>
+                    <th>说明</th>
+                </tr>
+                </thead>
+                <tbody id="cacheRows"></tbody>
+            </table>
+        </div>
+    </section>
+</main>
+
+<script src="/admin.js?v=20260611-5"></script>
+</body>
+</html>

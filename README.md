@@ -110,7 +110,18 @@ mvn spring-boot:run
 http://localhost:8080
 ```
 
-点击“提交分析任务”后，系统会读取 `data/sample_access_log.csv`，生成统计结果并写入 MySQL。
+系统会先进入登录页。演示账号如下：
+
+| 角色 | 用户名 | 密码 | 可访问页面 |
+| --- | --- | --- | --- |
+| 普通用户 | user | user123 | 首页、提交任务、查看结果 |
+| 管理员 | admin | admin123 | 首页、管理员控制台 |
+
+登录后点击“提交分析任务”，系统会读取所选样例日志，生成统计结果并写入 MySQL。管理员控制台地址为：
+
+```text
+http://localhost:8080/admin.html
+```
 
 如果 Hadoop 环境已经安装好，可在 `application.yml` 中设置：
 
@@ -140,7 +151,15 @@ app:
 
 - `GET /api/admin/users`：用户列表。
 - `GET /api/admin/tasks`：任务列表。
+- `DELETE /api/admin/tasks/{id}`：删除 `SUCCESS/FAILED` 状态任务。
+- `DELETE /api/admin/tasks/completed`：批量删除完成或异常任务。
+- `GET /api/admin/data`：查看访问排行、时段峰值、来源地区、来源 IP 数据概览。
+- `DELETE /api/admin/data/rank`：删除访问量排行数据。
+- `DELETE /api/admin/data/peak`：删除时段峰值数据。
+- `DELETE /api/admin/data/regions`：删除用户所在地区统计数据。
+- `DELETE /api/admin/data/ips`：删除用户 IP 统计数据。
 - `DELETE /api/admin/cache`：清理统计结果缓存。
+- `DELETE /api/admin/cache/completed`：删除已完成任务缓存，并清理完成/异常任务记录。
 
 ## 8. 目录结构
 

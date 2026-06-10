@@ -20,6 +20,24 @@ public interface ResultMapper {
     @Delete("delete from source_distribution")
     void clearSource();
 
+    @Delete("delete from source_distribution where source_type = 'REGION'")
+    void clearRegionSource();
+
+    @Delete("delete from source_distribution where source_type = 'IP'")
+    void clearIpSource();
+
+    @Select("select count(*) from visit_rank")
+    long countRank();
+
+    @Select("select count(*) from visit_peak")
+    long countPeak();
+
+    @Select("select count(*) from source_distribution where source_type = 'REGION'")
+    long countRegionSource();
+
+    @Select("select count(*) from source_distribution where source_type = 'IP'")
+    long countIpSource();
+
     @Insert("insert into visit_rank(site, url, pv) values(#{site}, #{url}, #{pv})")
     void insertRank(VisitRank rank);
 
@@ -42,4 +60,22 @@ public interface ResultMapper {
             limit 50
             """)
     List<SourceDistribution> findSources();
+
+    @Select("""
+            select site, source_type, source_value, pv
+            from source_distribution
+            where source_type = 'REGION'
+            order by pv desc, site asc, source_value asc
+            limit 50
+            """)
+    List<SourceDistribution> findRegionSources();
+
+    @Select("""
+            select site, source_type, source_value, pv
+            from source_distribution
+            where source_type = 'IP'
+            order by pv desc, site asc, source_value asc
+            limit 50
+            """)
+    List<SourceDistribution> findIpSources();
 }

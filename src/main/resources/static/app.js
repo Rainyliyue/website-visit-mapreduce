@@ -2,6 +2,10 @@ const rankChart = echarts.init(document.getElementById("rankChart"));
 const peakChart = echarts.init(document.getElementById("peakChart"));
 const sourceChart = echarts.init(document.getElementById("sourceChart"));
 
+loadCurrentUser();
+
+document.getElementById("logoutBtn").addEventListener("click", logout);
+
 document.getElementById("sampleSelect").addEventListener("change", event => {
     document.getElementById("inputPath").value = event.target.value;
     setNotice(`已选择样例：${event.target.options[event.target.selectedIndex].text}`, "info");
@@ -36,7 +40,10 @@ async function refreshAll() {
             fetchJson("/api/tasks"),
             fetchJson("/api/results/rank"),
             fetchJson("/api/results/peak"),
-            fetchJson("/api/results/source")
+            Promise.all([
+                fetchJson("/api/results/source/regions"),
+                fetchJson("/api/results/source/ips")
+            ]).then(([regions, ips]) => ({regions, ips}))
         ]);
         renderTasks(tasks);
         renderRank(rank);
@@ -85,13 +92,36 @@ function renderTasks(tasks) {
 }
 
 function renderRank(rows) {
-    const topRows = rows.slice(0, 20);
+    const topRows = rows.slice(0, 15).reverse();
     rankChart.setOption({
-        tooltip: {},
-        grid: {left: 48, right: 20, bottom: 100, top: 20},
-        xAxis: {type: "category", data: topRows.map(row => `${row.site}\n${row.url}`), axisLabel: {rotate: 35}},
-        yAxis: {type: "value"},
-        series: [{type: "bar", data: topRows.map(row => row.pv), itemStyle: {color: "#0f766e"}}]
+        tooltip: {
+            trigger: "axis",
+            axisPointer: {type: "shadow"},
+            formatter: params => {
+                const item = params[0];
+                const row = topRows[item.dataIndex];
+                return `${row.site}${row.url}<br/>PV：${row.pv}`;
+            }
+        },
+        grid: {left: 156, right: 28, bottom: 28, top: 12},
+        xAxis: {type: "value"},
+        yAxis: {
+            type: "category",
+            data: topRows.map(row => `${row.site} ${row.url}`),
+            axisLabel: {
+                width: 136,
+                overflow: "truncate"
+            }
+        },
+        series: [{
+            type: "bar",
+            data: topRows.map(row => row.pv),
+            itemStyle: {color: "#0f766e"},
+            label: {
+                show: true,
+                position: "right"
+            }
+        }]
     });
 }
 
@@ -108,8 +138,8 @@ function renderPeak(rows) {
     }));
     peakChart.setOption({
         tooltip: {trigger: "axis"},
-        legend: {type: "scroll", top: 0},
-        grid: {left: 42, right: 20, bottom: 42, top: 54},
+        legend: {type: "scroll", top: 0, left: 0, right: 0},
+        grid: {left: 48, right: 28, bottom: 46, top: 62},
         xAxis: {type: "category", data: hours.map(hour => `${hour}:00`)},
         yAxis: {type: "value"},
         series
@@ -117,12 +147,23 @@ function renderPeak(rows) {
 }
 
 function renderSource(rows) {
-    const regionRows = rows.filter(row => row.sourceType === "REGION").slice(0, 10);
+    const regionRows = rows.regions.slice(0, 10);
+    const legend = document.getElementById("sourceLegend");
+    legend.innerHTML = regionRows.map((row, index) => `
+        <div class="source-legend-item">
+            <span class="legend-dot dot-${index % 10}"></span>
+            <span class="legend-name" title="${row.site} · ${row.sourceValue}">${row.site} · ${row.sourceValue}</span>
+            <strong>${row.pv}</strong>
+        </div>
+    `).join("");
     sourceChart.setOption({
         tooltip: {trigger: "item"},
         series: [{
             type: "pie",
-            radius: ["42%", "70%"],
+            radius: ["48%", "76%"],
+            center: ["50%", "50%"],
+            label: {show: false},
+            labelLine: {show: false},
             data: regionRows.map(row => ({name: `${row.site}-${row.sourceValue}`, value: row.pv}))
         }]
     });
@@ -133,7 +174,8 @@ function renderRows(rank, peak, source) {
     const rows = [
         ...rank.map(row => ["访问排行", row.site, row.url, row.pv]),
         ...peak.slice(0, 10).map(row => ["峰值时段", row.site, `${row.hour}:00`, row.pv]),
-        ...source.slice(0, 10).map(row => ["来源分布", row.site, `${row.sourceType}:${row.sourceValue}`, row.pv])
+        ...source.regions.slice(0, 12).map(row => ["用户所在地区", row.site, row.sourceValue, row.pv]),
+        ...source.ips.slice(0, 12).map(row => ["用户IP", row.site, row.sourceValue, row.pv])
     ];
     tbody.innerHTML = "";
     rows.forEach(row => {
@@ -150,3 +192,17 @@ window.addEventListener("resize", () => {
 });
 
 refreshAll();
+
+async function loadCurrentUser() {
+    try {
+        const user = await fetchJson("/api/auth/me");
+        document.getElementById("currentUser").textContent = `${user.username} (${user.role})`;
+    } catch (error) {
+        window.location.href = "/login.html";
+    }
+}
+
+async function logout() {
+    await fetch("/api/auth/logout", {method: "POST"});
+    window.location.href = "/login.html";
+}

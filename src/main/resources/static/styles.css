@@ -40,6 +40,64 @@ button {
     cursor: pointer;
 }
 
+.secondary-btn {
+    background: #475569;
+}
+
+.top-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ghost-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 6px;
+    padding: 10px 14px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.login-body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #eef6ff 0%, #f7fbf8 100%);
+}
+
+.login-shell {
+    width: min(460px, calc(100% - 32px));
+}
+
+.login-panel {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 28px;
+    background: #fff;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+}
+
+.login-panel h1 {
+    margin: 0 0 8px;
+    font-size: 26px;
+}
+
+.login-panel p {
+    margin: 0 0 18px;
+    color: #64748b;
+}
+
+.login-actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+}
+
 button:disabled {
     cursor: wait;
     opacity: 0.7;
@@ -146,13 +204,166 @@ select {
     margin-bottom: 24px;
 }
 
+.dashboard-grid {
+    grid-template-columns: minmax(360px, 1fr) minmax(520px, 1.35fr);
+    align-items: stretch;
+}
+
+.peak-panel {
+    grid-column: 1 / -1;
+    grid-row: 2;
+}
+
+.admin-overview-grid {
+    display: grid;
+    grid-template-columns: minmax(360px, 1fr) minmax(420px, 1.35fr);
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
 .chart {
     width: 100%;
     height: 320px;
 }
 
+.wide-chart {
+    height: 380px;
+}
+
+.compact-chart {
+    height: 260px;
+    min-width: 220px;
+}
+
+.source-panel {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.9fr) minmax(180px, 1.1fr);
+    gap: 14px;
+    align-items: center;
+}
+
+.source-legend {
+    display: grid;
+    gap: 7px;
+}
+
+.source-legend-item {
+    display: grid;
+    grid-template-columns: 10px minmax(0, 1fr) auto;
+    gap: 8px;
+    align-items: center;
+    border-radius: 6px;
+    padding: 7px 8px;
+    background: #f8fafc;
+    font-size: 13px;
+}
+
+.legend-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.legend-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #5470c6;
+}
+
+.dot-1 { background: #91cc75; }
+.dot-2 { background: #fac858; }
+.dot-3 { background: #ee6666; }
+.dot-4 { background: #73c0de; }
+.dot-5 { background: #3ba272; }
+.dot-6 { background: #fc8452; }
+.dot-7 { background: #9a60b4; }
+.dot-8 { background: #ea7ccc; }
+.dot-9 { background: #2f4554; }
+
 .table-wrap {
     overflow-x: auto;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+}
+
+.admin-data-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.admin-data-actions button {
+    width: 100%;
+    min-height: 46px;
+    padding: 10px 12px;
+}
+
+.summary-item {
+    display: grid;
+    align-content: center;
+    min-height: 104px;
+    border-radius: 6px;
+    padding: 14px 16px;
+    background: #f8fafc;
+    text-align: center;
+}
+
+.summary-item strong {
+    color: #0f766e;
+    font-size: 36px;
+    line-height: 1;
+}
+
+.summary-item span {
+    display: block;
+    margin-top: 8px;
+    color: #475569;
+    white-space: nowrap;
+}
+
+.admin-actions-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+
+.task-table-scroll {
+    max-height: 520px;
+    overflow-y: auto;
+    border: 1px solid #eef2f7;
+    border-radius: 6px;
+}
+
+.task-table-scroll table {
+    min-width: 980px;
+}
+
+.task-table-scroll thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.table-action {
+    padding: 7px 10px;
+    font-size: 13px;
+}
+
+.danger {
+    background: #dc2626;
+}
+
+.muted {
+    color: #94a3b8;
+    white-space: nowrap;
 }
 
 table {
@@ -176,7 +387,8 @@ th {
 @media (max-width: 900px) {
     .topbar,
     .task-panel,
-    .chart-grid {
+    .chart-grid,
+    .admin-overview-grid {
         grid-template-columns: 1fr;
     }
 
@@ -184,5 +396,19 @@ th {
         align-items: stretch;
         flex-direction: column;
         padding: 22px 20px;
+    }
+
+    .top-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .summary-grid,
+    .admin-data-actions {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .source-panel {
+        grid-template-columns: 1fr;
     }
 }

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>登录 - 网站访问量统计分析系统</title>
+    <link rel="stylesheet" href="/styles.css?v=20260611-2">
+</head>
+<body class="login-body">
+<main class="login-shell">
+    <section class="login-panel">
+        <h1>网站访问量统计分析系统</h1>
+        <p>请选择课程演示账号登录</p>
+        <div id="loginNotice" class="notice">用户账号：user / user123；管理员账号：admin / admin123</div>
+        <label>
+            用户名
+            <input id="username" value="user" autocomplete="username">
+        </label>
+        <label>
+            密码
+            <input id="password" type="password" value="user123" autocomplete="current-password">
+        </label>
+        <div class="login-actions">
+            <button id="userQuick">用户登录</button>
+            <button id="adminQuick">管理员登录</button>
+            <button id="loginBtn">登录</button>
+        </div>
+    </section>
+</main>
+<script src="/login.js?v=20260611-2"></script>
+</body>
+</html>

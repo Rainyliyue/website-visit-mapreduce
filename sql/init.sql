@@ -20,6 +20,7 @@ use mapreduce_course;
 drop table if exists source_distribution;
 drop table if exists visit_peak;
 drop table if exists visit_rank;
+drop table if exists access_logs;
 drop table if exists analysis_tasks;
 drop table if exists users;
 
@@ -47,6 +48,23 @@ create table visit_rank (
     pv bigint not null,
     index idx_rank_pv (pv),
     index idx_rank_site (site)
+);
+
+create table access_logs (
+    id bigint primary key auto_increment,
+    visit_date varchar(16) not null,
+    visit_time varchar(16) not null,
+    site varchar(128) not null,
+    url varchar(512) not null,
+    target_address varchar(640) not null,
+    ip varchar(64) not null,
+    region varchar(64) not null,
+    status varchar(16) not null,
+    bytes bigint not null,
+    index idx_access_logs_time (visit_date, visit_time),
+    index idx_access_logs_site (site),
+    index idx_access_logs_ip (ip),
+    index idx_access_logs_region (region)
 );
 
 create table visit_peak (

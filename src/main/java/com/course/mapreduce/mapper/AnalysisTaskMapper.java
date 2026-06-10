@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Update;
 
 import java.time.LocalDateTime;
@@ -25,6 +26,12 @@ public interface AnalysisTaskMapper {
 
     @Select("select * from analysis_tasks order by id desc")
     List<AnalysisTask> findAll();
+
+    @Delete("delete from analysis_tasks where id = #{id} and status in ('SUCCESS', 'FAILED')")
+    int deleteFinishedOrFailed(Long id);
+
+    @Delete("delete from analysis_tasks where status in ('SUCCESS', 'FAILED')")
+    int deleteAllFinishedOrFailed();
 
     @Update("""
             update analysis_tasks

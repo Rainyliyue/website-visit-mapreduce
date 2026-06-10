@@ -1,7 +1,9 @@
 package com.course.mapreduce.service;
 
 import com.course.mapreduce.job.AccessLogRecord;
+import com.course.mapreduce.mapper.AccessLogMapper;
 import com.course.mapreduce.mapper.ResultMapper;
+import com.course.mapreduce.model.AccessLogEntry;
 import com.course.mapreduce.model.SourceDistribution;
 import com.course.mapreduce.model.VisitPeak;
 import com.course.mapreduce.model.VisitRank;
@@ -18,9 +20,11 @@ import java.util.Map;
 @Service
 public class LocalCsvAnalysisService {
     private final ResultMapper resultMapper;
+    private final AccessLogMapper accessLogMapper;
 
-    public LocalCsvAnalysisService(ResultMapper resultMapper) {
+    public LocalCsvAnalysisService(ResultMapper resultMapper, AccessLogMapper accessLogMapper) {
         this.resultMapper = resultMapper;
+        this.accessLogMapper = accessLogMapper;
     }
 
     public void analyze(String inputPath) throws IOException {
@@ -28,6 +32,7 @@ public class LocalCsvAnalysisService {
         Map<String, Long> peak = new HashMap<>();
         Map<String, Long> source = new HashMap<>();
 
+        accessLogMapper.clear();
         try (BufferedReader reader = Files.newBufferedReader(Path.of(inputPath), StandardCharsets.UTF_8)) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -35,6 +40,7 @@ public class LocalCsvAnalysisService {
                 if (record == null) {
                     continue;
                 }
+                accessLogMapper.insert(toEntry(record));
                 rank.merge(record.site() + "\t" + record.url(), 1L, Long::sum);
                 peak.merge(record.site() + "\t" + record.hour(), 1L, Long::sum);
                 source.merge(record.site() + "\tREGION\t" + record.region(), 1L, Long::sum);
@@ -70,5 +76,19 @@ public class LocalCsvAnalysisService {
             item.setPv(value);
             resultMapper.insertSource(item);
         });
+    }
+
+    private AccessLogEntry toEntry(AccessLogRecord record) {
+        AccessLogEntry entry = new AccessLogEntry();
+        entry.setVisitDate(record.date());
+        entry.setVisitTime(record.time());
+        entry.setSite(record.site());
+        entry.setUrl(record.url());
+        entry.setTargetAddress(record.targetAddress());
+        entry.setIp(record.ip());
+        entry.setRegion(record.region());
+        entry.setStatus(record.status());
+        entry.setBytes(record.bytes());
+        return entry;
     }
 }

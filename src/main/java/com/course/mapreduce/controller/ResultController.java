@@ -33,4 +33,14 @@ public class ResultController {
     public List<SourceDistribution> source() {
         return resultMapper.findSources();
     }
+
+    @GetMapping("/source/regions")
+    public List<SourceDistribution> regionSource() {
+        return resultMapper.findRegionSources();
+    }
+
+    @GetMapping("/source/ips")
+    public List<SourceDistribution> ipSource() {
+        return resultMapper.findIpSources();
+    }
 }

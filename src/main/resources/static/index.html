@@ -5,15 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>网站访问量统计分析系统</title>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
-    <link rel="stylesheet" href="/styles.css?v=20260609-3">
+    <link rel="stylesheet" href="/styles.css?v=20260611-7">
 </head>
 <body>
 <header class="topbar">
     <div>
         <h1>网站访问量统计分析系统</h1>
-        <p>Hadoop MapReduce · MySQL · ECharts</p>
+        <p>Hadoop MapReduce · MySQL · ECharts · <span id="currentUser">未登录</span></p>
     </div>
-    <button id="runBtn">提交分析任务</button>
+    <div class="top-actions">
+        <a class="ghost-link" href="/admin.html">管理员</a>
+        <button id="logoutBtn" class="secondary-btn">退出</button>
+        <button id="runBtn">提交分析任务</button>
+    </div>
 </header>
 
 <main class="layout">
@@ -50,18 +54,21 @@
         </div>
     </section>
 
-    <section class="chart-grid">
+    <section class="chart-grid dashboard-grid">
         <div class="panel">
             <h2>网站访问量热度排行</h2>
             <div id="rankChart" class="chart"></div>
         </div>
-        <div class="panel">
+        <div class="panel peak-panel">
             <h2>不同时间段访问峰值</h2>
-            <div id="peakChart" class="chart"></div>
+            <div id="peakChart" class="chart wide-chart"></div>
         </div>
         <div class="panel">
-            <h2>访问来源分布</h2>
-            <div id="sourceChart" class="chart"></div>
+            <h2>用户所在地区分布</h2>
+            <div class="source-panel">
+                <div id="sourceChart" class="chart compact-chart"></div>
+                <div id="sourceLegend" class="source-legend"></div>
+            </div>
         </div>
     </section>
 
@@ -83,6 +90,6 @@
     </section>
 </main>
 
-<script src="/app.js?v=20260609-3"></script>
+<script src="/app.js?v=20260611-7"></script>
 </body>
 </html>
