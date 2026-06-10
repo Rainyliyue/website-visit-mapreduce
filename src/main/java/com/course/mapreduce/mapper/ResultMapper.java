@@ -1,0 +1,45 @@
+package com.course.mapreduce.mapper;
+
+import com.course.mapreduce.model.SourceDistribution;
+import com.course.mapreduce.model.VisitPeak;
+import com.course.mapreduce.model.VisitRank;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
+
+public interface ResultMapper {
+
+    @Delete("delete from visit_rank")
+    void clearRank();
+
+    @Delete("delete from visit_peak")
+    void clearPeak();
+
+    @Delete("delete from source_distribution")
+    void clearSource();
+
+    @Insert("insert into visit_rank(site, url, pv) values(#{site}, #{url}, #{pv})")
+    void insertRank(VisitRank rank);
+
+    @Insert("insert into visit_peak(site, hour, pv) values(#{site}, #{hour}, #{pv})")
+    void insertPeak(VisitPeak peak);
+
+    @Insert("insert into source_distribution(site, source_type, source_value, pv) values(#{site}, #{sourceType}, #{sourceValue}, #{pv})")
+    void insertSource(SourceDistribution source);
+
+    @Select("select site, url, pv from visit_rank order by pv desc, site asc, url asc limit 20")
+    List<VisitRank> findTopRank();
+
+    @Select("select site, hour, pv from visit_peak order by site asc, hour asc")
+    List<VisitPeak> findPeaks();
+
+    @Select("""
+            select site, source_type, source_value, pv
+            from source_distribution
+            order by field(source_type, 'REGION', 'IP'), pv desc, site asc, source_value asc
+            limit 50
+            """)
+    List<SourceDistribution> findSources();
+}

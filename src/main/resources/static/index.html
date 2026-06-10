@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>网站访问量统计分析系统</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    <link rel="stylesheet" href="/styles.css?v=20260609-3">
+</head>
+<body>
+<header class="topbar">
+    <div>
+        <h1>网站访问量统计分析系统</h1>
+        <p>Hadoop MapReduce · MySQL · ECharts</p>
+    </div>
+    <button id="runBtn">提交分析任务</button>
+</header>
+
+<main class="layout">
+    <section class="panel task-panel">
+        <div>
+            <h2>任务控制</h2>
+            <div id="notice" class="notice">等待提交任务</div>
+            <label>
+                样例数据
+                <select id="sampleSelect">
+                    <option value="data/sample_access_log.csv">基础样例（60条）</option>
+                    <option value="data/sample_access_log_medium.csv">中等样例（1000条）</option>
+                    <option value="data/sample_access_log_holiday.csv">节假日样例（3000条）</option>
+                    <option value="data/sample_access_log_large.csv">大规模样例（10000条）</option>
+                </select>
+            </label>
+            <label>
+                输入日志路径
+                <input id="inputPath" value="data/sample_access_log.csv">
+            </label>
+            <label>
+                分析类型
+                <select id="analysisType">
+                    <option value="ALL">全部分析</option>
+                    <option value="RANK">访问量排行</option>
+                    <option value="PEAK">时段峰值</option>
+                    <option value="SOURCE">来源分布</option>
+                </select>
+            </label>
+        </div>
+        <div>
+            <h2>最近任务</h2>
+            <div id="taskList" class="task-list"></div>
+        </div>
+    </section>
+
+    <section class="chart-grid">
+        <div class="panel">
+            <h2>网站访问量热度排行</h2>
+            <div id="rankChart" class="chart"></div>
+        </div>
+        <div class="panel">
+            <h2>不同时间段访问峰值</h2>
+            <div id="peakChart" class="chart"></div>
+        </div>
+        <div class="panel">
+            <h2>访问来源分布</h2>
+            <div id="sourceChart" class="chart"></div>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2>统计结果明细</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                <tr>
+                    <th>类型</th>
+                    <th>网站</th>
+                    <th>维度</th>
+                    <th>访问量</th>
+                </tr>
+                </thead>
+                <tbody id="resultRows"></tbody>
+            </table>
+        </div>
+    </section>
+</main>
+
+<script src="/app.js?v=20260609-3"></script>
+</body>
+</html>

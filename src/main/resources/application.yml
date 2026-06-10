@@ -1,0 +1,23 @@
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-binding-errors: always
+
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/mapreduce_course?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false
+    username: mapreduce_user
+    password: mapreduce_pwd
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+app:
+  hadoop:
+    enabled: false
+  sample:
+    input-path: data/sample_access_log.csv
+    output-dir: target/mapreduce-output
