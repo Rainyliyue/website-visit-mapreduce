@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect x="0" y="0" width="1280" height="720" fill="#F3F6FA"/>
+  <text x="56" y="82" font-family="Microsoft YaHei, Arial, sans-serif" font-size="34" font-weight="700" fill="#152033">验收要点与总结</text>
+  <text x="56" y="118" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" fill="#667085">现场可展示的材料和运行证据</text>
+  <rect x="56" y="154" width="722" height="452" rx="14" fill="#FFFFFF"/>
+  <text x="88" y="200" font-family="Microsoft YaHei, Arial, sans-serif" font-size="24" font-weight="700" fill="#152033">验收清单</text>
+  <circle cx="104" cy="250" r="12" fill="#16A34A"/>
+  <text x="99" y="257" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">✓</text>
+  <text x="134" y="257" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="700" fill="#152033">源码工程</text>
+  <text x="310" y="257" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" fill="#667085">IDEA 打开，Maven 编译，Spring Boot 启动</text>
+  <line x1="88" y1="282" x2="746" y2="282" stroke="#D9E2EC" stroke-width="1"/>
+  <circle cx="104" cy="324" r="12" fill="#16A34A"/>
+  <text x="99" y="331" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">✓</text>
+  <text x="134" y="331" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="700" fill="#152033">Hadoop 作业</text>
+  <text x="310" y="331" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" fill="#667085">三个 MapReduce Job，可用 Docker 脚本运行</text>
+  <line x1="88" y1="356" x2="746" y2="356" stroke="#D9E2EC" stroke-width="1"/>
+  <circle cx="104" cy="398" r="12" fill="#16A34A"/>
+  <text x="99" y="405" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">✓</text>
+  <text x="134" y="405" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="700" fill="#152033">数据库脚本</text>
+  <text x="310" y="405" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" fill="#667085">sql/init.sql 初始化用户、任务、结果和明细表</text>
+  <line x1="88" y1="430" x2="746" y2="430" stroke="#D9E2EC" stroke-width="1"/>
+  <circle cx="104" cy="472" r="12" fill="#16A34A"/>
+  <text x="99" y="479" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">✓</text>
+  <text x="134" y="479" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="700" fill="#152033">Web 演示</text>
+  <text x="310" y="479" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" fill="#667085">普通用户与管理员功能均可现场操作</text>
+  <line x1="88" y1="504" x2="746" y2="504" stroke="#D9E2EC" stroke-width="1"/>
+  <circle cx="104" cy="546" r="12" fill="#16A34A"/>
+  <text x="99" y="553" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">✓</text>
+  <text x="134" y="553" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="700" fill="#152033">文档报告</text>
+  <text x="310" y="553" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" fill="#667085">docs 目录包含设计说明与课程设计报告</text>
+  <rect x="828" y="154" width="396" height="452" rx="14" fill="#0B4F4A"/>
+  <text x="864" y="210" font-family="Microsoft YaHei, Arial, sans-serif" font-size="28" font-weight="700" fill="#FFFFFF">总结一句话</text>
+  <line x1="864" y1="240" x2="1188" y2="240" stroke="#FFFFFF" stroke-opacity="0.25" stroke-width="2"/>
+  <text x="864" y="296" font-family="Microsoft YaHei, Arial, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF">系统完成了从日志到图表</text>
+  <text x="864" y="334" font-family="Microsoft YaHei, Arial, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF">再到管理维护的闭环。</text>
+  <text x="864" y="402" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" fill="#D9E2EC">核心计算使用 Hadoop MapReduce，</text>
+  <text x="864" y="434" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" fill="#D9E2EC">业务流程由 Spring Boot 和 MySQL 承接，</text>
+  <text x="864" y="466" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" fill="#D9E2EC">展示层由 ECharts 完成。</text>
+  <rect x="864" y="520" width="260" height="46" rx="12" fill="#FFFFFF" fill-opacity="0.14"/>
+  <text x="892" y="550" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">演示结束，可进入答疑</text>
+  <text x="56" y="660" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#667085">07 / 07</text>
+</svg>

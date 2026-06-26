@@ -1,6 +1,15 @@
 const rankChart = echarts.init(document.getElementById("rankChart"));
 const peakChart = echarts.init(document.getElementById("peakChart"));
 const sourceChart = echarts.init(document.getElementById("sourceChart"));
+const chartColors = ["#0f766e", "#4f46e5", "#f97316", "#e11d48", "#0891b2", "#65a30d", "#7c3aed", "#ca8a04"];
+const chartTextColor = "#667085";
+const axisLineStyle = {lineStyle: {color: "#d9e2ec"}};
+const splitLineStyle = {lineStyle: {color: "#e7edf5"}};
+const tooltipStyle = {
+    backgroundColor: "rgba(15, 23, 42, 0.92)",
+    borderColor: "rgba(15, 23, 42, 0)",
+    textStyle: {color: "#ffffff"}
+};
 
 loadCurrentUser();
 
@@ -20,19 +29,44 @@ document.getElementById("runBtn").addEventListener("click", async () => {
         const inputPath = sampleSelect.value;
         document.getElementById("inputPath").value = inputPath;
         const analysisType = document.getElementById("analysisType").value;
-        await fetchJson("/api/tasks", {
+        const task = await fetchJson("/api/tasks", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({inputPath, analysisType})
         });
+        setNotice(`任务 #${task.id} 已提交，正在后台分析...`, "info");
         await refreshAll();
-        setNotice("任务执行完成，结果已刷新。", "success");
+        const finishedTask = await waitForTask(task.id);
+        await refreshAll();
+        if (finishedTask.status === "SUCCESS") {
+            setNotice(`任务 #${finishedTask.id} 执行完成，结果已刷新。`, "success");
+        } else {
+            setNotice(`任务 #${finishedTask.id} 执行失败：${finishedTask.message || "请查看后台日志"}`, "error");
+        }
     } catch (error) {
         setNotice(error.message, "error");
     } finally {
         button.disabled = false;
     }
 });
+
+async function waitForTask(taskId) {
+    for (let index = 0; index < 300; index++) {
+        await sleep(1500);
+        const task = await fetchJson(`/api/tasks/${taskId}`);
+        const tasks = await fetchJson("/api/tasks");
+        renderTasks(tasks);
+        if (task.status === "SUCCESS" || task.status === "FAILED") {
+            return task;
+        }
+        setNotice(`任务 #${taskId} 当前状态：${task.status}，后台仍在分析...`, "info");
+    }
+    throw new Error(`任务 #${taskId} 仍在运行，请稍后在任务列表查看状态。`);
+}
+
+function sleep(milliseconds) {
+    return new Promise(resolve => setTimeout(resolve, milliseconds));
+}
 
 async function refreshAll() {
     try {
@@ -50,9 +84,28 @@ async function refreshAll() {
         renderPeak(peak);
         renderSource(source);
         renderRows(rank, peak, source);
+        renderDashboardStats(tasks, rank, peak, source);
     } catch (error) {
         setNotice(error.message, "error");
     }
+}
+
+function renderDashboardStats(tasks, rank, peak, source) {
+    const latest = tasks[0];
+    const stats = [
+        ["最新任务", latest ? `#${latest.id}` : "-", latest ? latest.status : "暂无任务", "accent-teal"],
+        ["热度排行", rank.length, "页面维度", "accent-amber"],
+        ["地区来源", source.regions.length, "展示维度", "accent-indigo"],
+        ["用户IP", source.ips.length, "展示维度", "accent-rose"]
+    ];
+    const box = document.getElementById("dashboardStats");
+    box.innerHTML = stats.map(item => `
+        <article class="metric-card ${item[3]}">
+            <span>${item[0]}</span>
+            <strong>${item[1]}</strong>
+            <em>${item[2]}</em>
+        </article>
+    `).join("");
 }
 
 async function fetchJson(url, options = {}) {
@@ -94,8 +147,10 @@ function renderTasks(tasks) {
 function renderRank(rows) {
     const topRows = rows.slice(0, 15).reverse();
     rankChart.setOption({
+        color: [chartColors[0]],
         tooltip: {
             trigger: "axis",
+            ...tooltipStyle,
             axisPointer: {type: "shadow"},
             formatter: params => {
                 const item = params[0];
@@ -104,11 +159,20 @@ function renderRank(rows) {
             }
         },
         grid: {left: 156, right: 28, bottom: 28, top: 12},
-        xAxis: {type: "value"},
+        xAxis: {
+            type: "value",
+            axisLine: axisLineStyle,
+            axisTick: {show: false},
+            axisLabel: {color: chartTextColor},
+            splitLine: splitLineStyle
+        },
         yAxis: {
             type: "category",
             data: topRows.map(row => `${row.site} ${row.url}`),
+            axisLine: axisLineStyle,
+            axisTick: {show: false},
             axisLabel: {
+                color: chartTextColor,
                 width: 136,
                 overflow: "truncate"
             }
@@ -116,11 +180,18 @@ function renderRank(rows) {
         series: [{
             type: "bar",
             data: topRows.map(row => row.pv),
-            itemStyle: {color: "#0f766e"},
+            barWidth: 12,
+            itemStyle: {
+                color: "#0f766e",
+                borderRadius: [0, 5, 5, 0]
+            },
             label: {
                 show: true,
-                position: "right"
-            }
+                position: "right",
+                color: "#334155",
+                fontWeight: 700
+            },
+            animationDuration: 650
         }]
     });
 }
@@ -134,14 +205,38 @@ function renderPeak(rows) {
         type: "line",
         smooth: true,
         showSymbol: false,
+        lineStyle: {width: 3},
+        emphasis: {focus: "series"},
         data: hours.map(hour => valueMap.get(`${site}-${hour}`) || 0)
     }));
     peakChart.setOption({
-        tooltip: {trigger: "axis"},
-        legend: {type: "scroll", top: 0, left: 0, right: 0},
+        color: chartColors,
+        tooltip: {trigger: "axis", ...tooltipStyle},
+        legend: {
+            type: "scroll",
+            top: 0,
+            left: 0,
+            right: 0,
+            textStyle: {color: "#334155"},
+            pageIconColor: "#334155",
+            pageIconInactiveColor: "#cbd5e1"
+        },
         grid: {left: 48, right: 28, bottom: 46, top: 62},
-        xAxis: {type: "category", data: hours.map(hour => `${hour}:00`)},
-        yAxis: {type: "value"},
+        xAxis: {
+            type: "category",
+            data: hours.map(hour => `${hour}:00`),
+            boundaryGap: false,
+            axisLine: axisLineStyle,
+            axisTick: {show: false},
+            axisLabel: {color: chartTextColor}
+        },
+        yAxis: {
+            type: "value",
+            axisLine: {show: false},
+            axisTick: {show: false},
+            axisLabel: {color: chartTextColor},
+            splitLine: splitLineStyle
+        },
         series
     });
 }
@@ -157,13 +252,19 @@ function renderSource(rows) {
         </div>
     `).join("");
     sourceChart.setOption({
-        tooltip: {trigger: "item"},
+        color: chartColors,
+        tooltip: {trigger: "item", ...tooltipStyle},
         series: [{
             type: "pie",
             radius: ["48%", "76%"],
             center: ["50%", "50%"],
             label: {show: false},
             labelLine: {show: false},
+            itemStyle: {
+                borderColor: "#ffffff",
+                borderWidth: 3,
+                borderRadius: 5
+            },
             data: regionRows.map(row => ({name: `${row.site}-${row.sourceValue}`, value: row.pv}))
         }]
     });

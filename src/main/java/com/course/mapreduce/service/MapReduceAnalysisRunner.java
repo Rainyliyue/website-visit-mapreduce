@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 @Component
 public class MapReduceAnalysisRunner {
@@ -21,16 +22,23 @@ public class MapReduceAnalysisRunner {
     @Value("${app.sample.output-dir:target/mapreduce-output}")
     private String outputDir;
 
-    public MapReduceOutputPaths runAll(String inputPath) throws Exception {
+    public MapReduceOutputPaths run(String inputPath, String analysisType) throws Exception {
+        String type = normalizeAnalysisType(analysisType);
         String suffix = LocalDateTime.now().format(OUTPUT_FORMAT);
-        String rankOutput = outputDir + "/rank-" + suffix;
-        String peakOutput = outputDir + "/peak-" + suffix;
-        String sourceOutput = outputDir + "/source-" + suffix;
+        String rankOutput = shouldRun(type, "RANK") ? outputDir + "/rank-" + suffix : null;
+        String peakOutput = shouldRun(type, "PEAK") ? outputDir + "/peak-" + suffix : null;
+        String sourceOutput = shouldRun(type, "SOURCE") ? outputDir + "/source-" + suffix : null;
 
         Configuration configuration = new Configuration();
-        runJob(configuration, WebsiteRankJob.createJob(configuration, inputPath, rankOutput), rankOutput);
-        runJob(configuration, HourPeakJob.createJob(configuration, inputPath, peakOutput), peakOutput);
-        runJob(configuration, SourceDistributionJob.createJob(configuration, inputPath, sourceOutput), sourceOutput);
+        if (rankOutput != null) {
+            runJob(configuration, WebsiteRankJob.createJob(configuration, inputPath, rankOutput), rankOutput);
+        }
+        if (peakOutput != null) {
+            runJob(configuration, HourPeakJob.createJob(configuration, inputPath, peakOutput), peakOutput);
+        }
+        if (sourceOutput != null) {
+            runJob(configuration, SourceDistributionJob.createJob(configuration, inputPath, sourceOutput), sourceOutput);
+        }
         return new MapReduceOutputPaths(rankOutput, peakOutput, sourceOutput);
     }
 
@@ -46,5 +54,16 @@ public class MapReduceAnalysisRunner {
     }
 
     public record MapReduceOutputPaths(String rankOutput, String peakOutput, String sourceOutput) {
+    }
+
+    private boolean shouldRun(String analysisType, String target) {
+        return "ALL".equals(analysisType) || target.equals(analysisType);
+    }
+
+    private String normalizeAnalysisType(String analysisType) {
+        if (analysisType == null || analysisType.isBlank()) {
+            return "ALL";
+        }
+        return analysisType.trim().toUpperCase(Locale.ROOT);
     }
 }

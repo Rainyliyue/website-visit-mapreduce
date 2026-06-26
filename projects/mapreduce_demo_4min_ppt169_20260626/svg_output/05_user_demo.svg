@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect x="0" y="0" width="1280" height="720" fill="#F3F6FA"/>
+  <text x="56" y="82" font-family="Microsoft YaHei, Arial, sans-serif" font-size="34" font-weight="700" fill="#152033">用户功能演示流程</text>
+  <text x="56" y="118" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" fill="#667085">普通用户完成任务提交、状态查看、结果查看和可视化视图</text>
+  <rect x="56" y="154" width="1168" height="430" rx="14" fill="#FFFFFF"/>
+  <rect x="88" y="194" width="260" height="310" rx="14" fill="#E8F3F1"/>
+  <text x="118" y="238" font-family="Microsoft YaHei, Arial, sans-serif" font-size="24" font-weight="700" fill="#0F766E">现场入口</text>
+  <text x="118" y="286" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" fill="#152033">浏览器</text>
+  <text x="118" y="318" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="700" fill="#152033">http://localhost:8080</text>
+  <line x1="118" y1="348" x2="318" y2="348" stroke="#D9E2EC" stroke-width="2"/>
+  <text x="118" y="390" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" fill="#152033">普通用户账号</text>
+  <text x="118" y="424" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="700" fill="#0B4F4A">user / user123</text>
+  <text x="118" y="466" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#667085">如已登录，可先退出再演示</text>
+  <rect x="392" y="194" width="768" height="310" rx="14" fill="#F7FAFC"/>
+  <circle cx="438" cy="244" r="20" fill="#0F766E"/>
+  <text x="432" y="252" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">1</text>
+  <text x="474" y="252" font-family="Microsoft YaHei, Arial, sans-serif" font-size="21" font-weight="700" fill="#152033">登录普通用户</text>
+  <text x="690" y="252" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">进入首页，看到任务提交区和图表区</text>
+  <line x1="438" y1="266" x2="438" y2="294" stroke="#D9E2EC" stroke-width="3"/>
+  <circle cx="438" cy="316" r="20" fill="#0F766E"/>
+  <text x="432" y="324" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">2</text>
+  <text x="474" y="324" font-family="Microsoft YaHei, Arial, sans-serif" font-size="21" font-weight="700" fill="#152033">选择样例数据</text>
+  <text x="690" y="324" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">基础 / 中等 / 节假日 / 大规模样例</text>
+  <line x1="438" y1="338" x2="438" y2="366" stroke="#D9E2EC" stroke-width="3"/>
+  <circle cx="438" cy="388" r="20" fill="#0F766E"/>
+  <text x="432" y="396" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">3</text>
+  <text x="474" y="396" font-family="Microsoft YaHei, Arial, sans-serif" font-size="21" font-weight="700" fill="#152033">点击提交分析任务</text>
+  <text x="690" y="396" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">任务状态从 PENDING / RUNNING 到 SUCCESS</text>
+  <line x1="438" y1="410" x2="438" y2="438" stroke="#D9E2EC" stroke-width="3"/>
+  <circle cx="438" cy="460" r="20" fill="#0F766E"/>
+  <text x="432" y="468" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">4</text>
+  <text x="474" y="468" font-family="Microsoft YaHei, Arial, sans-serif" font-size="21" font-weight="700" fill="#152033">查看图表和明细</text>
+  <text x="690" y="468" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">排行、峰值、地区分布、结果表格</text>
+  <rect x="88" y="532" width="1072" height="52" rx="12" fill="#E8F1F8"/>
+  <text x="118" y="565" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="700" fill="#155E75">讲解重点：</text>
+  <text x="218" y="565" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" fill="#152033">这一步对应用户功能的 4 项要求：提交任务、查看状态、查看处理结果、查看可视化视图</text>
+  <text x="56" y="660" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#667085">05 / 07</text>
+</svg>

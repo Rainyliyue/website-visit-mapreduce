@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect x="0" y="0" width="1280" height="720" fill="#F3F6FA" />
+  <text x="56" y="82" font-family="Microsoft YaHei, Arial, sans-serif" font-size="34" font-weight="700" fill="#152033">数据字段与分析维度</text>
+  <text x="56" y="118" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" fill="#667085">每条日志保留完整字段，不同统计任务按需取用</text>
+  <path fill="#FFFFFF" d="M70,154 H572 A14,14 0 0 1 586,168 V602 A14,14 0 0 1 572,616 H70 A14,14 0 0 1 56,602 V168 A14,14 0 0 1 70,154 Z" />
+  <text x="86" y="198" font-family="Microsoft YaHei, Arial, sans-serif" font-size="24" font-weight="700" fill="#152033">访问日志字段</text>
+  <rect x="86" y="226" width="470" height="52" fill="#F7FAFC" />
+  <text x="106" y="259" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="700" fill="#152033">字段</text>
+  <text x="265" y="259" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="700" fill="#152033">含义</text>
+  <text x="440" y="259" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="700" fill="#152033">用途</text>
+  <line x1="86" y1="278" x2="556" y2="278" stroke="#D9E2EC" stroke-width="2" />
+  <text x="106" y="314" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#152033">time</text>
+  <text x="265" y="314" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">访问发生时间</text>
+  <text x="440" y="314" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#0F766E">时段峰值</text>
+  <line x1="86" y1="334" x2="556" y2="334" stroke="#D9E2EC" stroke-width="1" />
+  <text x="106" y="370" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#152033">site</text>
+  <text x="265" y="370" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">网站域名</text>
+  <text x="440" y="370" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#0F766E">全部统计</text>
+  <line x1="86" y1="390" x2="556" y2="390" stroke="#D9E2EC" stroke-width="1" />
+  <text x="106" y="426" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#152033">url</text>
+  <text x="265" y="426" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">访问目标地址</text>
+  <text x="440" y="426" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#0F766E">热度排行</text>
+  <line x1="86" y1="446" x2="556" y2="446" stroke="#D9E2EC" stroke-width="1" />
+  <text x="106" y="482" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#152033">ip</text>
+  <text x="265" y="482" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">用户 IP</text>
+  <text x="440" y="482" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#0F766E">来源 IP</text>
+  <line x1="86" y1="502" x2="556" y2="502" stroke="#D9E2EC" stroke-width="1" />
+  <text x="106" y="538" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#152033">region</text>
+  <text x="265" y="538" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">用户所在地区</text>
+  <text x="440" y="538" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#0F766E">地区分布</text>
+  <path fill="#FFFFFF" d="M648,154 H1210 A14,14 0 0 1 1224,168 V602 A14,14 0 0 1 1210,616 H648 A14,14 0 0 1 634,602 V168 A14,14 0 0 1 648,154 Z" />
+  <text x="664" y="198" font-family="Microsoft YaHei, Arial, sans-serif" font-size="24" font-weight="700" fill="#152033">分析方向</text>
+  <path fill="#E8F3F1" d="M678,230 H900 A14,14 0 0 1 914,244 V358 A14,14 0 0 1 900,372 H678 A14,14 0 0 1 664,358 V244 A14,14 0 0 1 678,230 Z" />
+  <text x="692" y="270" font-family="Microsoft YaHei, Arial, sans-serif" font-size="21" font-weight="700" fill="#0F766E">访问量热度排行</text>
+  <text x="692" y="308" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">key = site + url</text>
+  <text x="692" y="338" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">输出访问次数 Top N</text>
+  <path fill="#E8F1F8" d="M958,230 H1180 A14,14 0 0 1 1194,244 V358 A14,14 0 0 1 1180,372 H958 A14,14 0 0 1 944,358 V244 A14,14 0 0 1 958,230 Z" />
+  <text x="972" y="270" font-family="Microsoft YaHei, Arial, sans-serif" font-size="21" font-weight="700" fill="#155E75">不同时间段峰值</text>
+  <text x="972" y="308" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">key = site + hour</text>
+  <text x="972" y="338" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">输出每小时访问量</text>
+  <path fill="#FFF1E8" d="M678,405 H900 A14,14 0 0 1 914,419 V533 A14,14 0 0 1 900,547 H678 A14,14 0 0 1 664,533 V419 A14,14 0 0 1 678,405 Z" />
+  <text x="692" y="445" font-family="Microsoft YaHei, Arial, sans-serif" font-size="21" font-weight="700" fill="#F97316">用户地区分布</text>
+  <text x="692" y="483" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">key = site + region</text>
+  <text x="692" y="513" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">输出地区访问来源</text>
+  <path fill="#F7FAFC" d="M958,405 H1180 A14,14 0 0 1 1194,419 V533 A14,14 0 0 1 1180,547 H958 A14,14 0 0 1 944,533 V419 A14,14 0 0 1 958,405 Z" />
+  <text x="972" y="445" font-family="Microsoft YaHei, Arial, sans-serif" font-size="21" font-weight="700" fill="#152033">来源 IP 分布</text>
+  <text x="972" y="483" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">key = site + ip</text>
+  <text x="972" y="513" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">输出 IP 访问次数</text>
+  <text x="56" y="660" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#667085">03 / 07</text>
+</svg>

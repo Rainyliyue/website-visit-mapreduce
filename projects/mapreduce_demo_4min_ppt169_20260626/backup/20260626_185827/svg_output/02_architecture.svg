@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect x="0" y="0" width="1280" height="720" fill="#F3F6FA"/>
+  <text x="56" y="82" font-family="Microsoft YaHei, Arial, sans-serif" font-size="34" font-weight="700" fill="#152033">系统整体架构</text>
+  <text x="56" y="118" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" fill="#667085">从访问日志到可视化页面的一条完整链路</text>
+  <rect x="56" y="150" width="1168" height="460" rx="14" fill="#FFFFFF"/>
+  <line x1="96" y1="250" x2="1184" y2="250" stroke="#D9E2EC" stroke-width="2"/>
+  <rect x="96" y="188" width="145" height="124" rx="14" fill="#E8F3F1"/>
+  <text x="126" y="228" font-family="Microsoft YaHei, Arial, sans-serif" font-size="22" font-weight="700" fill="#0F766E">CSV 日志</text>
+  <text x="115" y="268" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#667085">date time site</text>
+  <text x="115" y="293" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#667085">url ip region</text>
+  <polygon points="258,240 286,250 258,260" fill="#155E75"/>
+  <line x1="241" y1="250" x2="283" y2="250" stroke="#155E75" stroke-width="4"/>
+  <rect x="306" y="188" width="155" height="124" rx="14" fill="#E8F1F8"/>
+  <text x="336" y="228" font-family="Microsoft YaHei, Arial, sans-serif" font-size="22" font-weight="700" fill="#155E75">Web 页面</text>
+  <text x="326" y="268" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#667085">登录 / 提交</text>
+  <text x="326" y="293" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#667085">状态 / 图表</text>
+  <polygon points="478,240 506,250 478,260" fill="#155E75"/>
+  <line x1="461" y1="250" x2="503" y2="250" stroke="#155E75" stroke-width="4"/>
+  <rect x="526" y="188" width="168" height="124" rx="14" fill="#FFFFFF" stroke="#D9E2EC" stroke-width="2"/>
+  <text x="553" y="228" font-family="Microsoft YaHei, Arial, sans-serif" font-size="22" font-weight="700" fill="#152033">Spring Boot</text>
+  <text x="550" y="268" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#667085">任务 API</text>
+  <text x="550" y="293" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#667085">异步调度</text>
+  <polygon points="711,240 739,250 711,260" fill="#155E75"/>
+  <line x1="694" y1="250" x2="736" y2="250" stroke="#155E75" stroke-width="4"/>
+  <rect x="759" y="188" width="168" height="124" rx="14" fill="#E8F3F1"/>
+  <text x="782" y="228" font-family="Microsoft YaHei, Arial, sans-serif" font-size="22" font-weight="700" fill="#0F766E">MapReduce</text>
+  <text x="781" y="268" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#667085">排行 / 峰值</text>
+  <text x="781" y="293" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#667085">地区 / IP</text>
+  <polygon points="944,240 972,250 944,260" fill="#155E75"/>
+  <line x1="927" y1="250" x2="969" y2="250" stroke="#155E75" stroke-width="4"/>
+  <rect x="992" y="188" width="160" height="124" rx="14" fill="#FFF1E8"/>
+  <text x="1035" y="228" font-family="Microsoft YaHei, Arial, sans-serif" font-size="22" font-weight="700" fill="#F97316">MySQL</text>
+  <text x="1018" y="268" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#667085">任务表</text>
+  <text x="1018" y="293" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#667085">结果表 / 明细表</text>
+  <rect x="96" y="380" width="318" height="150" rx="14" fill="#FFFFFF" stroke="#D9E2EC" stroke-width="2"/>
+  <text x="124" y="420" font-family="Microsoft YaHei, Arial, sans-serif" font-size="23" font-weight="700" fill="#152033">用户侧</text>
+  <text x="124" y="460" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" fill="#667085">提交任务、查看状态、查看结果、图表展示</text>
+  <rect x="482" y="380" width="318" height="150" rx="14" fill="#FFFFFF" stroke="#D9E2EC" stroke-width="2"/>
+  <text x="510" y="420" font-family="Microsoft YaHei, Arial, sans-serif" font-size="23" font-weight="700" fill="#152033">计算侧</text>
+  <text x="510" y="460" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" fill="#667085">三个 Hadoop MapReduce 作业完成聚合统计</text>
+  <rect x="866" y="380" width="286" height="150" rx="14" fill="#FFFFFF" stroke="#D9E2EC" stroke-width="2"/>
+  <text x="894" y="420" font-family="Microsoft YaHei, Arial, sans-serif" font-size="23" font-weight="700" fill="#152033">管理员侧</text>
+  <text x="894" y="460" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" fill="#667085">用户、任务、数据、缓存管理</text>
+  <text x="56" y="660" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#667085">02 / 07</text>
+</svg>

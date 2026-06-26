@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect x="0" y="0" width="1280" height="720" fill="#F3F6FA" />
+  <rect x="0" y="0" width="1280" height="210" fill="#0F766E" />
+  <path fill="#FFFFFF" d="M74,56 H1206 A18,18 0 0 1 1224,74 V566 A18,18 0 0 1 1206,584 H74 A18,18 0 0 1 56,566 V74 A18,18 0 0 1 74,56 Z" />
+  <path fill="#0B4F4A" d="M74,56 H1206 A18,18 0 0 1 1224,74 V158 A18,18 0 0 1 1206,176 H74 A18,18 0 0 1 56,158 V74 A18,18 0 0 1 74,56 Z" />
+  <text x="92" y="115" font-family="Microsoft YaHei, Arial, sans-serif" font-size="34" font-weight="700" fill="#FFFFFF">课程设计现场演示</text>
+  <text x="92" y="242" font-family="Microsoft YaHei, Arial, sans-serif" font-size="44" font-weight="700" fill="#152033">基于 Hadoop MapReduce 的</text>
+  <text x="92" y="300" font-family="Microsoft YaHei, Arial, sans-serif" font-size="44" font-weight="700" fill="#152033">网站访问量统计分析系统</text>
+  <text x="94" y="353" font-family="Microsoft YaHei, Arial, sans-serif" font-size="22" fill="#667085">4 分钟演示：任务要求、核心算法、Web 功能与验收证据</text>
+  <path fill="#E8F3F1" d="M106,405 H252 A12,12 0 0 1 264,417 V441 A12,12 0 0 1 252,453 H106 A12,12 0 0 1 94,441 V417 A12,12 0 0 1 106,405 Z" />
+  <text x="128" y="436" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="700" fill="#0F766E">Hadoop</text>
+  <path fill="#E8F1F8" d="M296,405 H462 A12,12 0 0 1 474,417 V441 A12,12 0 0 1 462,453 H296 A12,12 0 0 1 284,441 V417 A12,12 0 0 1 296,405 Z" />
+  <text x="318" y="436" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="700" fill="#155E75">MapReduce</text>
+  <path fill="#E8F3F1" d="M506,405 H662 A12,12 0 0 1 674,417 V441 A12,12 0 0 1 662,453 H506 A12,12 0 0 1 494,441 V417 A12,12 0 0 1 506,405 Z" />
+  <text x="525" y="436" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="700" fill="#0F766E">Spring Boot</text>
+  <path fill="#FFF1E8" d="M706,405 H827 A12,12 0 0 1 839,417 V441 A12,12 0 0 1 827,453 H706 A12,12 0 0 1 694,441 V417 A12,12 0 0 1 706,405 Z" />
+  <text x="733" y="436" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="700" fill="#F97316">MySQL</text>
+  <path fill="#E8F1F8" d="M871,405 H997 A12,12 0 0 1 1009,417 V441 A12,12 0 0 1 997,453 H871 A12,12 0 0 1 859,441 V417 A12,12 0 0 1 871,405 Z" />
+  <text x="899" y="436" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="700" fill="#155E75">ECharts</text>
+  <line x1="94" y1="510" x2="1186" y2="510" stroke="#D9E2EC" stroke-width="2" />
+  <text x="94" y="550" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" fill="#152033">演示主线：日志数据 → MapReduce 统计 → 数据库存储 → 页面可视化 → 管理维护</text>
+  <text x="94" y="628" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#667085">01 / 07</text>
+  <path fill="#FFFFFF" fill-opacity="0.14" d="M944,94 H1146 A14,14 0 0 1 1160,108 V136 A14,14 0 0 1 1146,150 H944 A14,14 0 0 1 930,136 V108 A14,14 0 0 1 944,94 Z" />
+  <text x="960" y="129" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="700" fill="#FFFFFF">网站访问量系统</text>
+</svg>

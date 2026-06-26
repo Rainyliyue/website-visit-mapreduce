@@ -5,18 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>网站访问量统计分析系统</title>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
-    <link rel="stylesheet" href="/styles.css?v=20260611-7">
+    <link rel="stylesheet" href="/styles.css?v=20260611-9">
 </head>
 <body>
 <header class="topbar">
-    <div>
-        <h1>网站访问量统计分析系统</h1>
-        <p>Hadoop MapReduce · MySQL · ECharts · <span id="currentUser">未登录</span></p>
-    </div>
-    <div class="top-actions">
-        <a class="ghost-link" href="/admin.html">管理员</a>
-        <button id="logoutBtn" class="secondary-btn">退出</button>
-        <button id="runBtn">提交分析任务</button>
+    <div class="topbar-inner">
+        <div>
+            <h1>网站访问量统计分析系统</h1>
+            <p>Hadoop MapReduce · MySQL · ECharts · <span id="currentUser">未登录</span></p>
+        </div>
+        <div class="top-actions">
+            <a class="ghost-link" href="/admin.html">管理员</a>
+            <button id="logoutBtn" class="secondary-btn">退出</button>
+            <button id="runBtn">提交分析任务</button>
+        </div>
     </div>
 </header>
 
@@ -54,6 +56,8 @@
         </div>
     </section>
 
+    <section id="dashboardStats" class="metric-grid"></section>
+
     <section class="chart-grid dashboard-grid">
         <div class="panel">
             <h2>网站访问量热度排行</h2>
@@ -72,7 +76,7 @@
         </div>
     </section>
 
-    <section class="panel">
+    <section class="panel result-panel">
         <h2>统计结果明细</h2>
         <div class="table-wrap">
             <table>
@@ -90,6 +94,6 @@
     </section>
 </main>
 
-<script src="/app.js?v=20260611-7"></script>
+<script src="/app.js?v=20260611-10"></script>
 </body>
 </html>

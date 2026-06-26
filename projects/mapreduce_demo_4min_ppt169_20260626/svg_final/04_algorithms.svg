@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect x="0" y="0" width="1280" height="720" fill="#F3F6FA" />
+  <text x="56" y="82" font-family="Microsoft YaHei, Arial, sans-serif" font-size="34" font-weight="700" fill="#152033">MapReduce 核心算法</text>
+  <text x="56" y="118" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" fill="#667085">同一份日志解析，不同统计 key，统一 Reducer 求和</text>
+  <path fill="#FFFFFF" d="M70,154 H1210 A14,14 0 0 1 1224,168 V234 A14,14 0 0 1 1210,248 H70 A14,14 0 0 1 56,234 V168 A14,14 0 0 1 70,154 Z" />
+  <text x="86" y="192" font-family="Microsoft YaHei, Arial, sans-serif" font-size="22" font-weight="700" fill="#152033">共享基础</text>
+  <text x="230" y="192" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" fill="#667085">AccessLogRecord 解析 CSV 行，过滤表头和异常行</text>
+  <text x="230" y="224" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" fill="#667085">SumReducer 对相同 key 的 value=1 做累加，输出统计结果</text>
+  <path fill="#FFFFFF" d="M70,284 H398 A14,14 0 0 1 412,298 V556 A14,14 0 0 1 398,570 H70 A14,14 0 0 1 56,556 V298 A14,14 0 0 1 70,284 Z" />
+  <path fill="#E8F3F1" d="M70,284 H398 A14,14 0 0 1 412,298 V328 A14,14 0 0 1 398,342 H70 A14,14 0 0 1 56,328 V298 A14,14 0 0 1 70,284 Z" />
+  <text x="86" y="321" font-family="Microsoft YaHei, Arial, sans-serif" font-size="23" font-weight="700" fill="#0F766E">WebsiteRankJob</text>
+  <text x="86" y="374" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="700" fill="#152033">Mapper</text>
+  <text x="86" y="407" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">读取 site、url</text>
+  <text x="86" y="435" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">输出 key = site + url</text>
+  <line x1="86" y1="458" x2="382" y2="458" stroke="#D9E2EC" stroke-width="2" />
+  <text x="86" y="494" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="700" fill="#152033">Reducer 输出</text>
+  <text x="86" y="528" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">网站访问量热度排行</text>
+  <path fill="#FFFFFF" d="M476,284 H804 A14,14 0 0 1 818,298 V556 A14,14 0 0 1 804,570 H476 A14,14 0 0 1 462,556 V298 A14,14 0 0 1 476,284 Z" />
+  <path fill="#E8F1F8" d="M476,284 H804 A14,14 0 0 1 818,298 V328 A14,14 0 0 1 804,342 H476 A14,14 0 0 1 462,328 V298 A14,14 0 0 1 476,284 Z" />
+  <text x="492" y="321" font-family="Microsoft YaHei, Arial, sans-serif" font-size="23" font-weight="700" fill="#155E75">HourPeakJob</text>
+  <text x="492" y="374" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="700" fill="#152033">Mapper</text>
+  <text x="492" y="407" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">读取 site、time</text>
+  <text x="492" y="435" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">输出 key = site + hour</text>
+  <line x1="492" y1="458" x2="788" y2="458" stroke="#D9E2EC" stroke-width="2" />
+  <text x="492" y="494" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="700" fill="#152033">Reducer 输出</text>
+  <text x="492" y="528" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">各网站每小时访问峰值</text>
+  <path fill="#FFFFFF" d="M882,284 H1210 A14,14 0 0 1 1224,298 V556 A14,14 0 0 1 1210,570 H882 A14,14 0 0 1 868,556 V298 A14,14 0 0 1 882,284 Z" />
+  <path fill="#FFF1E8" d="M882,284 H1210 A14,14 0 0 1 1224,298 V328 A14,14 0 0 1 1210,342 H882 A14,14 0 0 1 868,328 V298 A14,14 0 0 1 882,284 Z" />
+  <text x="898" y="321" font-family="Microsoft YaHei, Arial, sans-serif" font-size="23" font-weight="700" fill="#F97316">SourceDistributionJob</text>
+  <text x="898" y="374" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="700" fill="#152033">Mapper</text>
+  <text x="898" y="407" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">读取 site、region、ip</text>
+  <text x="898" y="435" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">输出 REGION 与 IP 两类 key</text>
+  <line x1="898" y1="458" x2="1194" y2="458" stroke="#D9E2EC" stroke-width="2" />
+  <text x="898" y="494" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="700" fill="#152033">Reducer 输出</text>
+  <text x="898" y="528" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">地区分布与来源 IP 分布</text>
+  <path fill="#E8F3F1" d="M66,604 H1214 A10,10 0 0 1 1224,614 V640 A10,10 0 0 1 1214,650 H66 A10,10 0 0 1 56,640 V614 A10,10 0 0 1 66,604 Z" />
+  <text x="86" y="634" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="700" fill="#0F766E">现场可展示代码：</text>
+  <text x="250" y="634" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" fill="#152033">src/main/java/com/course/mapreduce/job 下的三个 Job 类</text>
+  <text x="56" y="682" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#667085">04 / 07</text>
+</svg>

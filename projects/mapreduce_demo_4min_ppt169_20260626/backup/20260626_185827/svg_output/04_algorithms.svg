@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect x="0" y="0" width="1280" height="720" fill="#F3F6FA"/>
+  <text x="56" y="82" font-family="Microsoft YaHei, Arial, sans-serif" font-size="34" font-weight="700" fill="#152033">MapReduce 核心算法</text>
+  <text x="56" y="118" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" fill="#667085">同一份日志解析，不同统计 key，统一 Reducer 求和</text>
+  <rect x="56" y="154" width="1168" height="94" rx="14" fill="#FFFFFF"/>
+  <text x="86" y="192" font-family="Microsoft YaHei, Arial, sans-serif" font-size="22" font-weight="700" fill="#152033">共享基础</text>
+  <text x="230" y="192" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" fill="#667085">AccessLogRecord 解析 CSV 行，过滤表头和异常行</text>
+  <text x="230" y="224" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" fill="#667085">SumReducer 对相同 key 的 value=1 做累加，输出统计结果</text>
+  <rect x="56" y="284" width="356" height="286" rx="14" fill="#FFFFFF"/>
+  <rect x="56" y="284" width="356" height="58" rx="14" fill="#E8F3F1"/>
+  <text x="86" y="321" font-family="Microsoft YaHei, Arial, sans-serif" font-size="23" font-weight="700" fill="#0F766E">WebsiteRankJob</text>
+  <text x="86" y="374" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="700" fill="#152033">Mapper</text>
+  <text x="86" y="407" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">读取 site、url</text>
+  <text x="86" y="435" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">输出 key = site + url</text>
+  <line x1="86" y1="458" x2="382" y2="458" stroke="#D9E2EC" stroke-width="2"/>
+  <text x="86" y="494" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="700" fill="#152033">Reducer 输出</text>
+  <text x="86" y="528" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">网站访问量热度排行</text>
+  <rect x="462" y="284" width="356" height="286" rx="14" fill="#FFFFFF"/>
+  <rect x="462" y="284" width="356" height="58" rx="14" fill="#E8F1F8"/>
+  <text x="492" y="321" font-family="Microsoft YaHei, Arial, sans-serif" font-size="23" font-weight="700" fill="#155E75">HourPeakJob</text>
+  <text x="492" y="374" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="700" fill="#152033">Mapper</text>
+  <text x="492" y="407" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">读取 site、time</text>
+  <text x="492" y="435" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">输出 key = site + hour</text>
+  <line x1="492" y1="458" x2="788" y2="458" stroke="#D9E2EC" stroke-width="2"/>
+  <text x="492" y="494" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="700" fill="#152033">Reducer 输出</text>
+  <text x="492" y="528" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">各网站每小时访问峰值</text>
+  <rect x="868" y="284" width="356" height="286" rx="14" fill="#FFFFFF"/>
+  <rect x="868" y="284" width="356" height="58" rx="14" fill="#FFF1E8"/>
+  <text x="898" y="321" font-family="Microsoft YaHei, Arial, sans-serif" font-size="23" font-weight="700" fill="#F97316">SourceDistributionJob</text>
+  <text x="898" y="374" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="700" fill="#152033">Mapper</text>
+  <text x="898" y="407" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">读取 site、region、ip</text>
+  <text x="898" y="435" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">输出 REGION 与 IP 两类 key</text>
+  <line x1="898" y1="458" x2="1194" y2="458" stroke="#D9E2EC" stroke-width="2"/>
+  <text x="898" y="494" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" font-weight="700" fill="#152033">Reducer 输出</text>
+  <text x="898" y="528" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">地区分布与来源 IP 分布</text>
+  <rect x="56" y="604" width="1168" height="46" rx="10" fill="#E8F3F1"/>
+  <text x="86" y="634" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="700" fill="#0F766E">现场可展示代码：</text>
+  <text x="250" y="634" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" fill="#152033">src/main/java/com/course/mapreduce/job 下的三个 Job 类</text>
+  <text x="56" y="682" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#667085">04 / 07</text>
+</svg>

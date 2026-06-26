@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect x="0" y="0" width="1280" height="720" fill="#F3F6FA" />
+  <text x="56" y="82" font-family="Microsoft YaHei, Arial, sans-serif" font-size="34" font-weight="700" fill="#152033">管理员功能与性能优化</text>
+  <text x="56" y="118" font-family="Microsoft YaHei, Arial, sans-serif" font-size="18" fill="#667085">管理员验收四项功能，并说明较大样例下的运行优化</text>
+  <path fill="#FFFFFF" d="M70,154 H588 A14,14 0 0 1 602,168 V592 A14,14 0 0 1 588,606 H70 A14,14 0 0 1 56,592 V168 A14,14 0 0 1 70,154 Z" />
+  <text x="88" y="200" font-family="Microsoft YaHei, Arial, sans-serif" font-size="24" font-weight="700" fill="#152033">管理员控制台</text>
+  <path fill="#E8F3F1" d="M100,232 H296 A12,12 0 0 1 308,244 V304 A12,12 0 0 1 296,316 H100 A12,12 0 0 1 88,304 V244 A12,12 0 0 1 100,232 Z" />
+  <text x="114" y="266" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="700" fill="#0F766E">用户管理</text>
+  <text x="114" y="294" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#667085">查看账号和角色</text>
+  <path fill="#E8F1F8" d="M350,232 H546 A12,12 0 0 1 558,244 V304 A12,12 0 0 1 546,316 H350 A12,12 0 0 1 338,304 V244 A12,12 0 0 1 350,232 Z" />
+  <text x="364" y="266" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="700" fill="#155E75">任务管理</text>
+  <text x="364" y="294" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#667085">删除完成或异常任务</text>
+  <path fill="#FFF1E8" d="M100,346 H296 A12,12 0 0 1 308,358 V418 A12,12 0 0 1 296,430 H100 A12,12 0 0 1 88,418 V358 A12,12 0 0 1 100,346 Z" />
+  <text x="114" y="380" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="700" fill="#F97316">数据管理</text>
+  <text x="114" y="408" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#667085">删除统计结果和明细</text>
+  <path fill="#F7FAFC" d="M350,346 H546 A12,12 0 0 1 558,358 V418 A12,12 0 0 1 546,430 H350 A12,12 0 0 1 338,418 V358 A12,12 0 0 1 350,346 Z" />
+  <text x="364" y="380" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="700" fill="#152033">缓存管理</text>
+  <text x="364" y="408" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#667085">清理已完成任务缓存</text>
+  <line x1="88" y1="468" x2="558" y2="468" stroke="#D9E2EC" stroke-width="2" />
+  <text x="88" y="506" font-family="Microsoft YaHei, Arial, sans-serif" font-size="19" fill="#152033">管理员账号：admin / admin123</text>
+  <text x="88" y="540" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" fill="#667085">现场操作：退出普通用户，登录 admin，进入控制台</text>
+  <path fill="#FFFFFF" d="M664,154 H1210 A14,14 0 0 1 1224,168 V592 A14,14 0 0 1 1210,606 H664 A14,14 0 0 1 650,592 V168 A14,14 0 0 1 664,154 Z" />
+  <text x="682" y="200" font-family="Microsoft YaHei, Arial, sans-serif" font-size="24" font-weight="700" fill="#152033">性能优化点</text>
+  <path fill="#E8F3F1" d="M694,235 H1156 A12,12 0 0 1 1168,247 V297 A12,12 0 0 1 1156,309 H694 A12,12 0 0 1 682,297 V247 A12,12 0 0 1 694,235 Z" />
+  <text x="712" y="268" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="700" fill="#0F766E">异步执行任务</text>
+  <text x="712" y="294" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#667085">提交后页面不阻塞，任务列表轮询状态</text>
+  <path fill="#E8F1F8" d="M694,330 H1156 A12,12 0 0 1 1168,342 V392 A12,12 0 0 1 1156,404 H694 A12,12 0 0 1 682,392 V342 A12,12 0 0 1 694,330 Z" />
+  <text x="712" y="363" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="700" fill="#155E75">批量写入数据库</text>
+  <text x="712" y="389" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#667085">统计结果和访问明细按批次落库，减少 SQL 往返</text>
+  <path fill="#FFF1E8" d="M694,425 H1156 A12,12 0 0 1 1168,437 V487 A12,12 0 0 1 1156,499 H694 A12,12 0 0 1 682,487 V437 A12,12 0 0 1 694,425 Z" />
+  <text x="712" y="458" font-family="Microsoft YaHei, Arial, sans-serif" font-size="20" font-weight="700" fill="#F97316">按分析类型执行</text>
+  <text x="712" y="484" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#667085">只运行当前需要的统计方向，降低大样例耗时</text>
+  <path fill="#F7FAFC" d="M694,520 H1156 A12,12 0 0 1 1168,532 V558 A12,12 0 0 1 1156,570 H694 A12,12 0 0 1 682,558 V532 A12,12 0 0 1 694,520 Z" />
+  <text x="712" y="552" font-family="Microsoft YaHei, Arial, sans-serif" font-size="17" font-weight="700" fill="#152033">适合演示：中等样例更稳，大规模样例用于说明容量</text>
+  <text x="56" y="660" font-family="Microsoft YaHei, Arial, sans-serif" font-size="16" fill="#667085">06 / 07</text>
+</svg>
